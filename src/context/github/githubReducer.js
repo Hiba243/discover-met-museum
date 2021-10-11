@@ -3,15 +3,17 @@ import {
     SET_LOADING,
     CLEAR_USERS,
     GET_USER,
-    GET_REPOS
+    GET_REPOS,
+    GET_IMAGES
 } from '../types'
 
 const githubReducer = (state,action) => {
     switch(action.type){
         case SEARCH_USERS:
+            
             return{
                 ...state,
-                users:action.payload,
+                users:action.payload.departments,
                 loading: false
             }
         case CLEAR_USERS:
@@ -28,7 +30,15 @@ const githubReducer = (state,action) => {
         case GET_USER:
             return{
                 ...state,
-                user:action.payload,
+                department: action.name,
+                user:action.payload.objectIDs,
+                image:action.image.primaryImage,
+                loading:false
+            }
+            case GET_IMAGES:
+            return{
+                ...state,
+                image:action.payload.primaryImage,
                 loading:false
             }
         case GET_REPOS:

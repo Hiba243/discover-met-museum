@@ -8,7 +8,8 @@ import {
     SET_LOADING,
     CLEAR_USERS,
     GET_USER,
-    GET_REPOS
+    GET_REPOS,
+    GET_IMAGES
 } from '../types'
 
 let githubClientId;
@@ -25,37 +26,51 @@ else{
 const GithubState = (props) => {
     const initialState = {
         users: [],
-        user: {},
+        user: [],
+        department:'',
         loading: false,
-        repos: []
+        repos: [],
+        image: ''
     }
     const [state, dispatch] = useReducer(githubReducer, initialState);
 
-    const searchUsers = async (text) => {
+    const searchUsers = async () => {
         setLoading();
 
-        const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${githubClientId}
-        &client_secret=${githubClientSecret}`);
-
+        const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/departments`);
+        console.log(res);
         dispatch({
             type: SEARCH_USERS,
-            payload: res.data.items
+            payload: res.data
         })
     }
     const clearUsers = () => dispatch({type:CLEAR_USERS});
      
     const setLoading = () => dispatch({ type: SET_LOADING });
 
-    const getUser = async (username) => {
+    const getUser = async (id,name) => {
         setLoading();
-        const res = await axios.get(`https://api.github.com/users/${username}?client_id=${githubClientId}
-        &client_secret=${githubClientSecret}`)
+        const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${id}&q=${name}&hasImages=true`)
+        let res1
+        if(res){
+            res1=await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${res.data.objectIDs[0]}`)
+        }
+        console.log(res);
         dispatch({
             type:GET_USER,
-            payload: res.data
+            payload: res.data,
+            name: name,
+            image:res1.data
         })
     }
-
+    const getImages = async (arr)  =>{
+        setLoading();
+        const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${arr}`)
+        dispatch({
+            type:GET_IMAGES,
+            payload: res.data,
+        })
+    }
     const getUserRepos = async (username) => {
         setLoading();
         const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${githubClientId}
@@ -72,6 +87,9 @@ const GithubState = (props) => {
         user: state.user,
         loading: state.loading,
         repos: state.repos,
+        department: state.department,
+        image:state.image,
+        getImages,
         searchUsers,
         clearUsers,
         getUser,

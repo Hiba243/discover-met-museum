@@ -4,7 +4,6 @@ import Users from '../../users/Users'
 const Home = () => {
     return (
         <Fragment>
-            <Search/>
             <Users/>
         </Fragment>
     )

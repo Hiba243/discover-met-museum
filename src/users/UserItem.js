@@ -1,12 +1,18 @@
-import React from 'react' 
-import {Link} from 'react-router-dom'
+import React,{useContext} from 'react' 
+import {Link,useHistory} from 'react-router-dom'
+import GithubContext from '../context/github/githubContext';
 
-const UserItem = ({user:{login,avatar_url,html_url}}) => {
+const UserItem = (user) => {
+    const githubContext = useContext(GithubContext);
+    let history = useHistory();
+    const DeptSearch= () => {
+        console.log(user.user.displayName);
+        githubContext.getUser(user.user.departmentId,user.user.displayName);
+        history.push("/search");
+    }
     return (
-        <div className="card text-center">
-            <img src={avatar_url} className="" alt="avatar"></img>
-            <p>{login}</p>
-            <button><Link to={`/user/${login}`}>More</Link></button>
+        <div >  
+            <p onClick={DeptSearch}>{user.user.displayName}</p>
         </div>
     )
 };

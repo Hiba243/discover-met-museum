@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext,useEffect} from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
 import User from './users/User';
@@ -9,8 +9,9 @@ import About from './components/pages/About';
 import GithubState from './context/github/GithubState';
 import AlertState from './context/alert/AlertState';
 import NotFound from './components/pages/NotFound';
-
+import Display from './users/Display';
 const App = () => {
+
   // async componentDidMount(){
   //   console.log(process.env.REACT_APP_GITHUB_CLIENT_ID);
   //   this.setState({loading:true});
@@ -18,7 +19,6 @@ const App = () => {
   //   &client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`)
   //   this.setState({users:res.data, loading:false});
   // }
-  
   
   return (
     <GithubState>
@@ -31,6 +31,7 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={Home}></Route>
               <Route exact path="/about" component={About}></Route>
+              <Route exact path="/search" component={Display}></Route>
               <Route exact path="/user/:login" component={User}></Route>
               <Route component={NotFound}></Route>
             </Switch>
