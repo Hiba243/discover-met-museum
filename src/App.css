@@ -42,9 +42,8 @@ img {
 
 /* Utilities */
 .container {
- 
+  
   overflow: hidden;
-  padding: 0 1rem;
 }
 
 /* Text Styles*/
@@ -350,11 +349,11 @@ table th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
+  color:black;
+  background-color: transparent;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
-  margin-bottom: 1rem;
 }
 
 .navbar ul {
@@ -413,10 +412,18 @@ table th {
 }
 
 .deptFlex{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ display: grid;
+ grid-template-columns: 50% 50%;
+ text-align: center;
+ /* background-image: url("https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg"); */
+ background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg");
+ /* Full height */
+ height: 100vh;
+  
+ /* Center and scale the image nicely */
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 
 .deptName{
@@ -424,5 +431,8 @@ table th {
 }
 
 .deptNameField{
- height: 5rem;
+ height: 10rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
 }

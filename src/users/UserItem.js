@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import {Link,useHistory} from 'react-router-dom'
 import GithubContext from '../context/github/githubContext';
 
-const UserItem = (user) => {
+const UserItem = (user,images) => {
     const githubContext = useContext(GithubContext);
     let history = useHistory();
     const DeptSearch= () => {
