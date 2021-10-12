@@ -7,17 +7,12 @@ import 'react-gallery-carousel/dist/index.css';
 
 function Display() {
   const cancelTokenSource = axios.CancelToken.source();
-
   const artContext = useContext(ArtContext);
   const { objectID } = artContext;
   const [allImages, setAllImages] = useState([]);
   useEffect(() => {
     if (objectID.length > 0 && allImages.length <= 0) {
-      console.log(objectID.length);
-      console.log(allImages);
-      let departments = [];
       let promises = [];
-
       for (let i = 0; i < objectID.length; i++) {
         promises.push(
           axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID[i]}`, {
