@@ -38,7 +38,7 @@ const GithubState = (props) => {
         setLoading();
 
         const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/departments`);
-        console.log(res);
+        
         dispatch({
             type: SEARCH_USERS,
             payload: res.data
@@ -55,7 +55,7 @@ const GithubState = (props) => {
         if(res){
             res1=await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${res.data.objectIDs[0]}`)
         }
-        console.log(res);
+        
         dispatch({
             type:GET_USER,
             payload: res.data,

@@ -6,13 +6,13 @@ const UserItem = (user) => {
     const githubContext = useContext(GithubContext);
     let history = useHistory();
     const DeptSearch= () => {
-        console.log(user.user.displayName);
+        
         githubContext.getUser(user.user.departmentId,user.user.displayName);
         history.push("/search");
     }
     return (
-        <div >  
-            <p onClick={DeptSearch}>{user.user.displayName}</p>
+        <div className="deptNameField">  
+            <p onClick={DeptSearch} className="deptName">{user.user.displayName}</p>
         </div>
     )
 };

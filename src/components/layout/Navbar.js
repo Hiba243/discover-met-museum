@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const Navbar = ({ title }) => {
 
     return (
-        <nav className="navbar bg-primary">
-            <Link to="/"><h1>{title}</h1></Link>
+        <nav className="navbar">
+            <Link to="/"><p>{title}</p></Link>
             <ul>
                 <li>
                     <Link to="/">Home</Link>
@@ -21,7 +21,7 @@ const Navbar = ({ title }) => {
 }
 
 Navbar.defaultProps = {
-    title: 'Github Finder'
+    title: 'Met Museum Tour'
 }
 Navbar.propTypes = {
     title: PropTypes.string.isRequired

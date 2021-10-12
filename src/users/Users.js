@@ -14,7 +14,7 @@ const Users = () => {
     if (loading) return <Spinner />
     else
         return (
-            <div style={userStyle}>
+            <div className="deptFlex">
                 {users.map(user => (
                     <UserItem key={user.departmentId} user={user}></UserItem>
                 ))}
