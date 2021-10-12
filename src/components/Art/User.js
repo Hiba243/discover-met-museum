@@ -1,15 +1,15 @@
 import React, { useContext, Fragment, useEffect } from 'react'
-import { Spinner } from '../components/layout/Spinner'
+import { Spinner } from '../layout/Spinner'
 import { Link } from 'react-router-dom';
-import Repos from '../components/repos/Repos';
-import GithubContext from '../context/github/githubContext';
+import Repos from '../repos/Repos';
+import GithubContext from '../../context/metart/artContext';
 
 const User = ({ match }) => {
     const githubContext = useContext(GithubContext);
-    
-    const {user,loading,repos}=githubContext;
+
+    const { user, loading, repos } = githubContext;
     useEffect(() => {
-        githubContext.getUser(match.params.login)
+        githubContext.getObjectsOfDepartment(match.params.login)
         githubContext.getUserRepos(match.params.login)
         // eslint-disable-next-line
     }, []);

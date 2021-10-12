@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import Search from '../../users/Search'
-import Users from '../../users/Users'
+import Search from '../Art/Search'
+import DeptsDisplay from '../Art/DeptsDisplay'
 const Home = () => {
     return (
         <Fragment>
-            <Users/>
+            <DeptsDisplay />
         </Fragment>
     )
 }
