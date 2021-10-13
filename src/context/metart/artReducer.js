@@ -1,26 +1,24 @@
 import {
     SEARCH_DEPARTMENTS,
     SET_LOADING,
-    CLEAR_USERS,
+    CLEAR_OBJECTS,
     GET_OBJECTS,
-    GET_REPOS,
     GET_IMAGES
 } from '../types'
 
 const artReducer = (state, action) => {
     switch (action.type) {
         case SEARCH_DEPARTMENTS:
-
             return {
                 ...state,
                 departments: action.payload.departments,
-                image:action.image,
                 loading: false
             }
-        case CLEAR_USERS:
+        case CLEAR_OBJECTS:
             return {
                 ...state,
                 departments: [],
+                objectID: [],
                 loading: false
             }
         case SET_LOADING:
@@ -33,19 +31,6 @@ const artReducer = (state, action) => {
                 ...state,
                 department: action.name,
                 objectID: action.payload.objectIDs,
-                image: action.image.primaryImage,
-                loading: false
-            }
-        case GET_IMAGES:
-            return {
-                ...state,
-                image: action.payload.primaryImage,
-                loading: false
-            }
-        case GET_REPOS:
-            return {
-                ...state,
-                repos: action.payload,
                 loading: false
             }
         default:

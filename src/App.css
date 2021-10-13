@@ -19,10 +19,12 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
   color: #333;
+  background-color: #BCAB79;
 }
-
+.bg-yellow{
+  background-color: #BCAB79;
+}
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -349,11 +351,13 @@ table th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color:black;
+  color:#581F18;
   background-color: transparent;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
+
+  padding: 1rem 3rem;
 }
 
 .navbar ul {
@@ -361,13 +365,12 @@ table th {
 }
 
 .navbar a {
-  color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
+  color:#581F18;
+  font-weight: bold;
 }
 
 .navbar a:hover {
-  color: var(--light-color);
+  color:#581F18;
 }
 
 .navbar .welcome span {
@@ -412,13 +415,11 @@ table th {
 }
 
 .deptFlex{
- display: grid;
- grid-template-columns: 50% 50%;
- text-align: center;
+ display: flex;
+ justify-content: space-between;
  /* background-image: url("https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg"); */
- background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg");
- /* Full height */
- height: 100vh;
+ 
+
   
  /* Center and scale the image nicely */
  background-position: center;
@@ -431,8 +432,62 @@ table th {
 }
 
 .deptNameField{
- height: 10rem;
+  height: fit-content;
  display: flex;
  flex-direction: column;
  justify-content: center;
+}
+.landing-page-heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  padding-left: 3rem;
+  font-size: 3rem;
+  color:#581F18;
+}
+.deptColFlex{
+  display: grid;
+  grid-template-columns: 50%  50%;
+  align-items: center;
+  align-self: center;
+  text-align: left;
+  padding-right: 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  gap:1rem;
+  color:#581F18;
+}
+.home{
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://images.unsplash.com/photo-1542300205-6fe56ce087e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80");
+  /* Full height */
+  height: 100vh;
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.deptHeading{
+  text-align: center;
+  padding-bottom: 1rem ;
+  color:#581F18;
+}
+
+.carousel-container{
+  margin:3rem;
+}
+
+.about{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  gap:3rem;
+  color:#581F18;
+  font-weight: bold;
+}
+.notfound{
+ padding: 3rem;
+ color:#581F18;
+  font-weight: bold;
 }

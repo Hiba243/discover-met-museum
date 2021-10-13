@@ -11,7 +11,7 @@ const DeptCategory = (obj) => {
     }
     return (
         <div className="deptNameField">
-            <p onClick={DeptSearch} className="deptName">{obj.obj.displayName}</p>
+            <p onClick={DeptSearch} className="deptName">~ {obj.obj.displayName}</p>
         </div>
     )
 };

@@ -1,27 +1,26 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-
-const Navbar = ({ title }) => {
-
+import ArtContext from '../../context/metart/artContext'
+const Navbar = ({ title ,style}) => {
+    const artContext=useContext(ArtContext);
+    if(!artContext.loading)
     return (
         <nav className="navbar">
             <Link to="/"><p>{title}</p></Link>
             <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
                 <li>
                     <Link to="/about">About</Link>
                 </li>
             </ul>
         </nav>
     )
+    else return ''
 
 }
 
 Navbar.defaultProps = {
-    title: 'Met Museum Tour'
+    title: 'Discover the Met Museum'
 }
 Navbar.propTypes = {
     title: PropTypes.string.isRequired
