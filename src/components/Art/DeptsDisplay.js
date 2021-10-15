@@ -16,7 +16,6 @@ const DeptsDisplay = () => {
       }
       else{
       artContext.searchAllDepartments();
-      setInfo(departments);
     }
     }
   }, [])
@@ -29,9 +28,13 @@ const DeptsDisplay = () => {
       <div className="deptFlex">
         <h1 className="landing-page-heading">Discover the Metropolitan Museum of New York</h1>
         <div className="deptColFlex">
-        {info.map(object => (
+        {info.length!=0 ? info.map(object => (
           <DeptCategory key={object.departmentId} obj={object}></DeptCategory>
-        ))}
+        )) :
+        departments.map(object => (
+          <DeptCategory key={object.departmentId} obj={object}></DeptCategory>
+        ))
+        }
         </div>
       </div>
       </div>
