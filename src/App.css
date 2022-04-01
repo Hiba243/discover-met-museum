@@ -23,7 +23,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: #ffffff;
+
   background:
   linear-gradient(#3A3845, transparent),
   linear-gradient(to top left, #826F66, transparent),
@@ -36,6 +36,9 @@ body {
   linear-gradient(to top left, #826F66, transparent),
   linear-gradient(to top right, #302A18, transparent);
   height: 100vh;
+}
+.bg-yellow{
+  height: 100%;
 }
 a {
   color: var(--primary-color);
@@ -457,7 +460,6 @@ table th {
   flex-direction: column;
   justify-content: center;
   font-size: 2rem;
-  padding:3rem 0 0 0;
   color:#ffffff;
   font-family: 'Cardo', serif;
   font-weight: 400 !important;
@@ -496,6 +498,7 @@ table th {
 
 .carousel-container{
   margin:3rem;
+  height: 500px;
 }
 
 .about{

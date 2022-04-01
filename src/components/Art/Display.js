@@ -40,7 +40,7 @@ function Display() {
       <Navbar style={{position:"relative !important"}}/>
       <h1 className="deptHeading">{artContext.department}</h1>
       <div className='carousel-container'>
-        <Carousel images={allImages} autoPlayInterval={4000} isMaximized={true} hasCaptions="top" hasIndexBoard={false}/>
+        <Carousel images={allImages} autoPlayInterval={4000} hasCaptions="top" hasIndexBoard={false}  hasThumbnails={false} />
       </div>
     </div>
   )
