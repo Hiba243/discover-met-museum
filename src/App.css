@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css2?family=Cardo&family=Poppins&display=swap');
 
 /* Global Styles */
 :root {
@@ -13,17 +13,29 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 
+.text-accent{
+  font-family: 'Cardo';
+}
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
-  background-color: #BCAB79;
+  color: #ffffff;
+  background:
+  linear-gradient(#3A3845, transparent),
+  linear-gradient(to top left, #826F66, transparent),
+  linear-gradient(to top right, #302A18, transparent);
+  height: 100%;
 }
-.bg-yellow{
-  background-color: #BCAB79;
+.bg-color{
+  background:
+  linear-gradient(#3A3845, transparent),
+  linear-gradient(to top left, #826F66, transparent),
+  linear-gradient(to top right, #302A18, transparent);
+  height: 100vh;
 }
 a {
   color: var(--primary-color);
@@ -351,13 +363,13 @@ table th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color:#581F18;
+  color:#ffffff;
   background-color: transparent;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
 
-  padding: 1rem 3rem;
+  padding: 3rem;
 }
 
 .navbar ul {
@@ -365,12 +377,12 @@ table th {
 }
 
 .navbar a {
-  color:#581F18;
-  font-weight: bold;
+  color:#ffffff;
+  font-size: 0.75rem;
 }
 
 .navbar a:hover {
-  color:#581F18;
+  color:#ffffff;
 }
 
 .navbar .welcome span {
@@ -416,6 +428,9 @@ table th {
 
 .deptFlex{
  display: flex;
+ flex-direction: column;
+ row-gap: 1rem;
+ align-items: center;
  justify-content: space-between;
  /* background-image: url("https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg"); */
  
@@ -441,36 +456,42 @@ table th {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30%;
-  padding-left: 3rem;
-  font-size: 3rem;
-  color:#581F18;
+  font-size: 2rem;
+  padding:3rem 0 0 0;
+  color:#ffffff;
+  font-family: 'Cardo', serif;
+  font-weight: 400 !important;
 }
 .deptColFlex{
-  display: grid;
-  grid-template-columns: 50%  50%;
-  align-items: center;
-  align-self: center;
-  text-align: left;
-  padding-right: 3rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  gap:1rem;
-  color:#581F18;
+ display: grid;
+ grid-template-columns: 33% 33% 33%;
+  align-items:flex-start;
+  padding: 4rem;
+  font-size: 1rem;
+  column-gap:5rem;
+  row-gap: 2rem;
+  color:#ffffff;
+  justify-content: space-between;
+
+}
+.nav-flex{
+  display: flex;
+  column-gap: 2rem;
 }
 .home{
-  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://images.unsplash.com/photo-1542300205-6fe56ce087e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80");
+  /* background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://images.unsplash.com/photo-1542300205-6fe56ce087e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"); */
   /* Full height */
-  height: 100vh;
-  background-position: top;
+  /* background-position: top;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+ 
 }
+
 .deptHeading{
   text-align: center;
   padding-bottom: 1rem ;
-  color:#581F18;
+  color:#ffffff;
 }
 
 .carousel-container{
@@ -478,16 +499,36 @@ table th {
 }
 
 .about{
-  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 3rem;
   gap:3rem;
-  color:#581F18;
-  font-weight: bold;
+  color:#ffffff;
+
 }
 .notfound{
  padding: 3rem;
- color:#581F18;
-  font-weight: bold;
+ color:#ffffff;
+}
+.home-landing{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5rem;
+  justify-content: center;
+}
+.home-heading{
+  font-size: 3rem;
+}
+button{
+  padding: 1rem;
+  border: 1px solid white;
+  color:white;
+  border-radius: 10px;
+  background-color:transparent;
+}
+button:hover{
+  background-color: white;
+  color:black;
 }

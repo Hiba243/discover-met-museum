@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import Navbar from '../layout/Navbar';
 const About = () => {
     return (
-        <div className="bg-yellow">
+        <div className='bg-color'>
             <Navbar />
             <div className="about">
                 <h1>About</h1>

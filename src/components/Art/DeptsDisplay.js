@@ -26,7 +26,7 @@ const DeptsDisplay = () => {
       <div className="home">
         <Navbar/>
       <div className="deptFlex">
-        <h1 className="landing-page-heading">Discover the Metropolitan Museum of New York</h1>
+        <h1 className="landing-page-heading">Choose a department to begin the tour</h1>
         <div className="deptColFlex">
         {info.length!=0 ? info.map(object => (
           <DeptCategory key={object.departmentId} obj={object}></DeptCategory>

@@ -8,7 +8,10 @@ const Navbar = ({ title ,style}) => {
     return (
         <nav className="navbar">
             <Link to="/"><p>{title}</p></Link>
-            <ul>
+            <ul className='nav-flex'>
+            <li>
+                    <Link to="/choosedept">Departments</Link>
+                </li>
                 <li>
                     <Link to="/about">About</Link>
                 </li>

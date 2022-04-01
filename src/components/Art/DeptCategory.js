@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import ArtContext from '../../context/metart/artContext';
 
 const DeptCategory = (obj) => {
+    console.log(obj);
     const artContext = useContext(ArtContext);
     let history = useHistory();
     const DeptSearch = () => {
