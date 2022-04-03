@@ -11,17 +11,6 @@ import {
     GET_IMAGES
 } from '../types'
 
-let ClientId;
-let ClientSecret;
-if (process.env.NODE_ENV !== 'production') {
-    ClientId = process.env.REACT_APP__CLIENT_ID;
-    ClientSecret = process.env.REACT_APP__CLIENT_SECRET;
-}
-else {
-    ClientId = process.env._CLIENT_ID;
-    ClientSecret = process.env._CLIENT_SECRET;
-}
-
 const ArtState = (props) => {
     const initialState = {
         departments: [],
