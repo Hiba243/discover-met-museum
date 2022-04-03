@@ -32,8 +32,10 @@ function Display() {
             cancelToken: cancelTokenSource.token
           }).then(response => {
             // do something with response
-            let obj = { src: response.data.primaryImage, alt:response.data.title}
+           if(response.data.primaryImage!=="")
+            {let obj = { src: response.data.primaryImage, alt:response.data.title}
             setAllImages(prevState => [...prevState, obj]);
+            }
           })
         )
       }
@@ -51,7 +53,7 @@ function Display() {
     localStorage.removeItem('deptName');
     }
   },[])
-  if(!artContext.loading && objectID){
+  if(!artContext.loading && objectID && allImages.length>0){
   return (
     <div className="bg-yellow">
       <Navbar style={{position:"relative !important"}}/>
@@ -62,6 +64,15 @@ function Display() {
       </div>
     </div>
   )
+  }
+  else if(!artContext.loading && objectID && allImages.length===0){
+    return (
+      <div className="bg-yellow vh-style">
+      <Navbar style={{position:"relative !important"}}/>
+      <h1 className="deptHeading">{artContext.department ? artContext.department : deptname}</h1>
+      <p className='text-content'>No images are available for this department</p>
+    </div>
+    )
   }
   else{
     return <Spinner/>
