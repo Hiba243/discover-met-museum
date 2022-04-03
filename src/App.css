@@ -423,10 +423,6 @@ table th {
   }
 
   /* Navbar */
-  .navbar {
-    display: block;
-    text-align: center;
-  }
 
   .navbar ul {
     text-align: center;
@@ -539,6 +535,7 @@ table th {
 }
 .home-heading{
   font-size: 3rem;
+  padding: 3rem;
 }
 button{
   padding: 1rem;
@@ -559,4 +556,18 @@ button:hover{
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 250ms ease-in;
+}
+@media only screen and (max-width: 600px){
+  body{
+    font-size: 0.75rem;
+  }
+  .home-heading, .landing-page-heading{
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+@media only screen and (max-width: 907px){
+  .deptColFlex{
+    grid-template-columns: none;
+  }
 }
