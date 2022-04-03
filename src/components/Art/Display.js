@@ -8,9 +8,23 @@ import 'react-gallery-carousel/dist/index.css';
 function Display() {
   const cancelTokenSource = axios.CancelToken.source();
   const artContext = useContext(ArtContext);
-  const { objectID } = artContext;
+  var { objectID } = artContext;
   const [allImages, setAllImages] = useState([]);
+  const [info,setInfo]=useState([]);
+  const [deptname,setDeptName]=useState([]);
+  useEffect(()=>{
+    if( JSON.parse(localStorage.getItem('objId'))){
+      setInfo(JSON.parse(localStorage.getItem('objId')));
+    }
+    if( JSON.parse(localStorage.getItem('deptName'))){
+      setDeptName(JSON.parse(localStorage.getItem('deptName')));
+    }
+  },[]);
   useEffect(() => {
+    console.log(objectID);
+    console.log(info);
+    var test=objectID.length
+    if(test==0) { console.log("here");objectID=info;}
     if (objectID && objectID.length > 0 && allImages.length <= 0) {
       let promises = [];
       for (let i = 0; i < objectID.length; i++) {
@@ -30,7 +44,7 @@ function Display() {
       // Anything in here is fired on component unmount.
       cancelTokenSource.cancel();
     }
-  }, [objectID])
+  }, [info,objectID])
   useEffect(()=>{
     artContext.clearObjects();
   },[])
@@ -38,7 +52,8 @@ function Display() {
   return (
     <div className="bg-yellow">
       <Navbar style={{position:"relative !important"}}/>
-      <h1 className="deptHeading">{artContext.department}</h1>
+      <h1 className="deptHeading">{artContext.department ? artContext.department : deptname}</h1>
+      <p className='text-content'>Click on the maximize button on the top right corner of the image for a better experience.</p>
       <div className='carousel-container'>
         <Carousel images={allImages} autoPlayInterval={4000} hasCaptions="top" hasIndexBoard={false}  hasThumbnails={false} />
       </div>
