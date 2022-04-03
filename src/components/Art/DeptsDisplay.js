@@ -3,7 +3,6 @@ import DeptCategory from './DeptCategory'
 import { Spinner } from '../layout/Spinner'
 import ArtContext from '../../context/metart/artContext'
 import Navbar from '../layout/Navbar'
-import axios from "axios";
 
 const DeptsDisplay = () => {
   const artContext = useContext(ArtContext);

@@ -4,6 +4,7 @@ import Navbar from '../layout/Navbar';
 import axios from "axios";
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
+import { Spinner } from '../layout/Spinner';
 
 function Display() {
   const cancelTokenSource = axios.CancelToken.source();
@@ -21,10 +22,8 @@ function Display() {
     }
   },[]);
   useEffect(() => {
-    console.log(objectID);
-    console.log(info);
-    var test=objectID.length
-    if(test==0) { console.log("here");objectID=info;}
+    var objIdLength=objectID.length
+    if(objIdLength==0) { objectID=info;}
     if (objectID && objectID.length > 0 && allImages.length <= 0) {
       let promises = [];
       for (let i = 0; i < objectID.length; i++) {
@@ -46,7 +45,11 @@ function Display() {
     }
   }, [info,objectID])
   useEffect(()=>{
+    return () => {
     artContext.clearObjects();
+    localStorage.removeItem('objId');
+    localStorage.removeItem('deptName');
+    }
   },[])
   if(!artContext.loading && objectID){
   return (
@@ -61,7 +64,7 @@ function Display() {
   )
   }
   else{
-    return <div className="bg-yellow"><Navbar style={{position:"relative !important"}}/><p className="notfound">No Images Available For This Department</p></div>
+    return <Spinner/>
   }
 }
 

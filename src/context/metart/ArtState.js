@@ -46,7 +46,7 @@ const ArtState = (props) => {
     const getObjectsOfDepartment = async (id, name) => {
         setLoading();
         const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${id}&q=${name}&hasImages=true`)
-        localStorage.setItem('objId', JSON.stringify(res.data.objectIDs));
+        
         localStorage.setItem('deptName', JSON.stringify(name));
         dispatch({
             type: GET_OBJECTS,

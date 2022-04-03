@@ -27,10 +27,12 @@ const artReducer = (state, action) => {
                 loading: true
             }
         case GET_OBJECTS:
+            var arr=action.payload.objectIDs.slice(0,10);
+            localStorage.setItem('objId', JSON.stringify(arr));
             return {
                 ...state,
                 department: action.name,
-                objectID: action.payload.objectIDs,
+                objectID: arr,
                 loading: false
             }
         default:

@@ -40,6 +40,11 @@ body {
 .bg-yellow{
   height: 100%;
 }
+.loading-page{
+  height: 100vh;
+  display: flex;
+  text-align: center;
+}
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -516,6 +521,13 @@ table th {
 .notfound{
  padding: 3rem;
  color:#ffffff;
+ height: 100vh;
+ text-align: center;
+}
+.loading-text{
+  color:white;
+  font-size: 2rem;
+  margin: auto;
 }
 .home-landing{
   height: 100vh;
