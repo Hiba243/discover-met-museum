@@ -12,6 +12,7 @@ function Display() {
   var { objectID } = artContext;
   const [allImages, setAllImages] = useState([]);
   const [info,setInfo]=useState([]);
+  const [isLoading,setIsLoading]=useState(true);
   const [deptname,setDeptName]=useState([]);
   const inputEl = useRef(null);
   const setExperience = () => {
@@ -31,6 +32,7 @@ function Display() {
     if(objIdLength==0) { objectID=info;}
     if (objectID && objectID.length > 0 && allImages.length <= 0) {
       let promises = [];
+      setIsLoading(true);
       for (let i = 0; i < objectID.length; i++) {
         promises.push(
           axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID[i]}`, {
@@ -44,13 +46,14 @@ function Display() {
           })
         )
       }
-      Promise.allSettled(promises).then(() => { console.log("done") });
+      Promise.allSettled(promises).then(() => { setIsLoading(false) });
     }
     return () => {
       // Anything in here is fired on component unmount.
       cancelTokenSource.cancel();
+      setIsLoading(false);
     }
-  }, [info,objectID])
+  }, [info,objectID,isLoading])
   useEffect(()=>{
     return () => {
     artContext.clearObjects();
@@ -58,7 +61,7 @@ function Display() {
     localStorage.removeItem('deptName');
     }
   },[])
-  if(!artContext.loading && objectID && allImages.length>0){
+  if(!artContext.loading && objectID && allImages.length>0 && !isLoading){
   return (
     <div className="bg-yellow">
       <Navbar style={{position:"relative !important"}}/>
@@ -70,7 +73,7 @@ function Display() {
     </div>
   )
   }
-  else if(!artContext.loading && objectID && allImages.length===0){
+  else if(!artContext.loading && objectID && allImages.length===0 && !isLoading){
     return (
       <div className="bg-yellow vh-style">
       <Navbar style={{position:"relative !important"}}/>
