@@ -536,6 +536,7 @@ table th {
 .home-heading{
   font-size: 3rem;
   padding: 3rem;
+  text-align: center;
 }
 button{
   padding: 1rem;
@@ -564,6 +565,12 @@ button:hover{
   .home-heading, .landing-page-heading{
     font-size: 1rem;
     padding: 1rem;
+  }
+  .navbar,.deptColFlex,.text-content,.about{
+    padding: 2rem 1rem;
+  }
+  .deptColFlex{
+    text-align: center;
   }
 }
 @media only screen and (max-width: 907px){
