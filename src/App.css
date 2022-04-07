@@ -569,6 +569,9 @@ button:hover{
   .navbar,.deptColFlex,.text-content,.about{
     padding: 2rem 1rem;
   }
+  .carousel-container{
+    margin: 2rem 1rem;
+  }
   .deptColFlex{
     text-align: center;
   }
