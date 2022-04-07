@@ -46,14 +46,14 @@ function Display() {
           })
         )
       }
-      Promise.allSettled(promises).then(() => { setIsLoading(false) });
+      Promise.allSettled(promises).then(() => { setIsLoading(false) ;});
     }
     return () => {
       // Anything in here is fired on component unmount.
       cancelTokenSource.cancel();
       setIsLoading(false);
     }
-  }, [info,objectID,isLoading])
+  }, [info,objectID])
   useEffect(()=>{
     return () => {
     artContext.clearObjects();
@@ -64,7 +64,7 @@ function Display() {
   if(!artContext.loading && objectID && allImages.length>0 && !isLoading){
   return (
     <div className="bg-yellow">
-      <Navbar style={{position:"relative !important"}}/>
+      <Navbar/>
       <h1 className="deptHeading">{artContext.department ? artContext.department : deptname}</h1>
       <p className='text-content'>~ For an immersive experience <span className='text-content p-link' onClick={setExperience}>click here</span></p>
       <div className='carousel-container'>
@@ -76,7 +76,7 @@ function Display() {
   else if(!artContext.loading && objectID && allImages.length===0 && !isLoading){
     return (
       <div className="bg-yellow vh-style">
-      <Navbar style={{position:"relative !important"}}/>
+      <Navbar/>
       <h1 className="deptHeading">{artContext.department ? artContext.department : deptname}</h1>
       <p className='text-content'>No images are available for this department</p>
     </div>
