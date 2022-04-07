@@ -575,6 +575,9 @@ button:hover{
   .deptColFlex{
     text-align: center;
   }
+  .deptName{
+    font-size: 0.75rem;
+  }
 }
 @media only screen and (max-width: 907px){
   .deptColFlex{
