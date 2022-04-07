@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState,   useRef } from 'react'
 import ArtContext from '../../context/metart/artContext';
 import Navbar from '../layout/Navbar';
 import axios from "axios";
@@ -13,6 +13,11 @@ function Display() {
   const [allImages, setAllImages] = useState([]);
   const [info,setInfo]=useState([]);
   const [deptname,setDeptName]=useState([]);
+  const inputEl = useRef(null);
+  const setExperience = () => {
+    inputEl.current.maximize();
+    inputEl.current.play();
+  }
   useEffect(()=>{
     if( JSON.parse(localStorage.getItem('objId'))){
       setInfo(JSON.parse(localStorage.getItem('objId')));
@@ -58,9 +63,9 @@ function Display() {
     <div className="bg-yellow">
       <Navbar style={{position:"relative !important"}}/>
       <h1 className="deptHeading">{artContext.department ? artContext.department : deptname}</h1>
-      <p className='text-content'>Click on the maximize button on the top right corner of the image for a better experience.</p>
+      <p className='text-content'>~ For an immersive experience <span className='text-content p-link' onClick={setExperience}>click here</span></p>
       <div className='carousel-container'>
-        <Carousel images={allImages} autoPlayInterval={4000} hasCaptions="top" hasIndexBoard={false}  hasThumbnails={false} />
+        <Carousel ref={inputEl} images={allImages} autoPlayInterval={5000} hasCaptions="top" hasIndexBoard={false}  hasThumbnails={false} />
       </div>
     </div>
   )

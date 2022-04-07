@@ -574,3 +574,8 @@ button:hover{
 .vh-style{
   height: 100vh;
 }
+.p-link{
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
